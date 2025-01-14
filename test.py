@@ -27,7 +27,8 @@ else:
         if key == ord('c'):  # Capture the image when 'c' is pressed
             captured_frame = frame
             print("Image captured and stored in variable.")
-            break
+            print(type(captured_frame))
+            
         elif key == ord('q'):  # Quit when 'q' is pressed
             print("Exiting without capturing.")
             break
@@ -39,3 +40,4 @@ else:
     # The captured frame is stored in 'captured_frame'
     if captured_frame is not None:
         print("Captured frame is now available in the variable.")
+
