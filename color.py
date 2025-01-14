@@ -58,4 +58,4 @@ color_dict = data.groupby('Color_Family').apply(lambda group: list(group[['R', '
 
 k = 3
 
-print("The value classified to unknown point is: {}".format(classifyAPoint(color_dict, color_rgb, k)))
+print("\n\ncolor is : {}".format(classifyAPoint(color_dict, color_rgb, k)))
