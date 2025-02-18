@@ -108,4 +108,3 @@ else:
     # The captured frame is stored in 'captured_frame'
     if captured_frame is not None:
         print("Captured frame is now available in the variable.")
-
