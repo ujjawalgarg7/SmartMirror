@@ -4,7 +4,7 @@ import numpy as np
 from PIL import Image
 
 # Load input image using PIL
-input_path = "input.jpg"  # Replace with your image path
+input_path = "./image.jpeg"  # Replace with your image path
 image_pil = Image.open(input_path)
 
 # Remove background using rembg
