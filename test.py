@@ -47,9 +47,9 @@ def func(image):
     print(f"Dominant Color (RGB): {dominant_color}")
     print(f"Dominant Color (Hex): {hex_code}")
 
-    # Display the dominant color
+
     plt.figure(figsize=(2, 2))
-    plt.imshow([[dominant_color / 255]])  # Normalize color for display
+    plt.imshow([[dominant_color / 255]]) 
     plt.title(f"Hex {hex_code}", fontsize=10)
     plt.axis('off')
     plt.show()
@@ -67,7 +67,7 @@ def func(image):
     print("\n\ncolor is : {}".format(classifyAPoint(color_dict, color_rgb, k)))
 
 
-# Initialize the camera
+
 cap = cv2.VideoCapture(0)
 
 if not cap.isOpened():
@@ -75,36 +75,36 @@ if not cap.isOpened():
 else:
     print("Press 'c' to capture an image or 'q' to quit.")
 
-    captured_frame = None  # Variable to store the captured frame
-
+    captured_frame = None
+    
     while True:
-        # Capture frame-by-frame
+
         ret, frame = cap.read()
 
         if not ret:
             print("Failed to capture frame.")
             break
 
-        # Display the frame
+
         cv2.imshow('Camera Preview', frame)
 
-        # Wait for a key press
+
         key = cv2.waitKey(1) & 0xFF
 
-        if key == ord('c'):  # Capture the image when 'c' is pressed
+        if key == ord('c'):  
             captured_frame = frame
             print("Image captured and stored in variable.")
             print(type(captured_frame))
             func(captured_frame)
             
-        elif key == ord('q'):  # Quit when 'q' is pressed
+        elif key == ord('q'):  
             print("Exiting without capturing.")
             break
 
-    # Release the camera and close the window
+
     cap.release()
     cv2.destroyAllWindows()
 
-    # The captured frame is stored in 'captured_frame'
+
     if captured_frame is not None:
         print("Captured frame is now available in the variable.")
