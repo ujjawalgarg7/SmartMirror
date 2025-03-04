@@ -9,10 +9,13 @@ from datetime import datetime
 from kivy.graphics.texture import Texture
 from kivy.uix.boxlayout import BoxLayout
 from kivy.graphics import Color, RoundedRectangle
+from dotenv import load_dotenv
+import os 
 
+load_dotenv()
 # Weather API Setup
 CITY = "Noida"
-API_KEY = ""  # Replace with actual API key
+API_KEY =  os.getenv("API_KEY")  # Replace with actual API key
 
 class SmartMirror(RelativeLayout):
     def __init__(self, **kwargs):
