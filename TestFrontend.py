@@ -27,45 +27,51 @@ class SmartMirror(RelativeLayout):
 
         # Bottom-Left Text Container (Horizontal)
         self.text_container = BoxLayout(orientation='horizontal', size_hint=(None, 0.3),  # Dynamic width
-                                            pos_hint={"left": 0, "bottom": 0}, padding=[20, 20, 20, 20],
-                                            spacing=20)  # Initial spacing
+                                         pos_hint={"left": 0, "bottom": 0}, padding=[20, 20, 20, 20],
+                                         spacing=20)  # Initial spacing
 
         # Create a Smooth Semi-Transparent Background Behind Text
         with self.canvas.before:
             Color(0, 0, 0, 1)  # 50% Black Transparency
             self.overlay_rect = RoundedRectangle(pos=self.text_container.pos,
-                                                size=self.text_container.size,
-                                                radius=[10])  # reduced radius
+                                                 size=self.text_container.size,
+                                                 radius=[10])  # reduced radius
 
         self.add_widget(self.text_container)
 
         # Name Label (Elegant & Modern)
         self.name_label = Label(text="Ujjawal Garg", font_size=40, bold=True,
-                                    color=(1, 0, 0, 1), font_name="Arial", halign="left",
-                                    text_size=(None, self.text_container.height))  # reduced font size and changed halign
+                                 color=(1, 0, 0, 1), font_name="Arial", halign="left",
+                                 text_size=(None, self.text_container.height))  # reduced font size and changed halign
         self.text_container.add_widget(self.name_label)
 
         # Date & Time Label (More Spacing & Readable)
         self.datetime_label = Label(font_size=30, bold=True, color=(1, 1, 0, 1),
-                                        font_name="Arial", halign="left",
-                                        text_size=(None, self.text_container.height))  # reduced font size and changed halign
+                                     font_name="Arial", halign="left",
+                                     text_size=(None, self.text_container.height))  # reduced font size and changed halign
         self.text_container.add_widget(self.datetime_label)
 
         # Weather Label Container (RelativeLayout)
-        self.weather_container = RelativeLayout(size_hint=(None, None), 
-                                               pos_hint={"right": 1, "bottom": 0})
+        self.weather_container = RelativeLayout(size_hint=(None, None),
+                                                  pos_hint={"right": 1, "bottom": 0})
 
         self.add_widget(self.weather_container)
 
         # Weather Label (Modern Font & Icon) - Inside the container
         self.weather_label = Label(font_size=30, bold=True, color=(0, 0, 0, 1),
-                                        font_name="Arial", halign="right",
-                                        size_hint=(None, 1), 
-                                        pos_hint={"right": 0.2, "bottom": 0},
-                                        text_size=(250, None),
-                                        padding=[0, 0, 40, 80]) #Added padding here
+                                     font_name="Arial", halign="right",
+                                     size_hint=(None, 1),
+                                     pos_hint={"right": 0.2, "bottom": 0},
+                                     text_size=(250, None),
+                                     padding=[0, 0, 40, 80]) #Added padding here
 
         self.weather_container.add_widget(self.weather_label)
+
+        # Smart Mirror Label (Top Center)
+        self.smart_mirror_label = Label(text="SMART MIRROR", font_size=50, bold=True,
+                                        color=(0.2, 0.5, 1, 1), font_name="Arial",
+                                        pos_hint={"top": 1, "center_x": 0.5, "center_y":0.95})
+        self.add_widget(self.smart_mirror_label)
 
         # Update Time, Weather, and Camera Feed
         Clock.schedule_interval(self.update_time, 1)
