@@ -1,1 +1,6 @@
 .env
+\shapes_dataset
+\runs
+yolov8n.pt
+yolov8m.pt
+yolo11n.pt
