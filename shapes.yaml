@@ -2,10 +2,14 @@ path: D:\PROJECTS\SmartMirror\shapes_dataset  # or absolute path
 train: images/train
 val: images/val
 test: images/test
-
 names:
   0: circle
   1: triangle
   2: square
   3: rectangle
   4: star
+  5: ellipse
+  6: pentagon
+  7: hexagon
+  8: cross
+  9: heart
